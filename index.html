@@ -1,21 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paginated Posts</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
-        #posts { margin-bottom: 20px; }
-        .post { border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; border-radius: 5px; }
-        button { padding: 8px 16px; margin: 0 5px; }
+        body {
+            font-family: 'Fira Mono', 'Consolas', 'Courier New', monospace;
+            margin: 40px;
+            background: #000;
+            color: #39ff14;
+        }
+
+        #cmd {
+            background: #111;
+            border: 2px solid #39ff14;
+            box-shadow: 0 0 10px #39ff14;
+            padding: 24px 32px 16px 32px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            min-width: 350px;
+            max-width: 700px;
+        }
+
+        #cmd-title {
+            color: hotpink;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            font-family: inherit;
+        }
+
+        #posts {
+            margin-bottom: 20px;
+        }
+
+        .post {
+            border: 2px solid hotpink;
+            background: rgba(255, 20, 147, 0.08);
+            color: #39ff14;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px hotpink, 0 0 2px #39ff14;
+            font-family: inherit;
+        }
+
+        .post h3 {
+            color: #39ff14;
+            font-family: inherit;
+        }
+
+        .post span {
+            color: hotpink;
+            font-weight: bold;
+            text-shadow: 0 0 5px hotpink;
+        }
+
+        button {
+            padding: 8px 16px;
+            margin: 0 5px;
+            background: #111;
+            color: #39ff14;
+            border: 2px solid hotpink;
+            border-radius: 5px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        button:hover:not(:disabled) {
+            background: hotpink;
+            color: #000;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: pointer;
+        }
+
+        .cmd-cursor {
+            display: inline-block;
+            width: 10px;
+            background: #39ff14;
+            animation: blink 1s steps(1) infinite;
+            height: 1.2em;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
+        }
     </style>
 </head>
+
 <body>
     <h1>Paginated Posts</h1>
-    <div id="posts"></div>
-    <button id="prev">Previous</button>
-    <button id="next">Next</button>
+    <div id="cmd">
+        <div id="cmd-title">C:\Users\User&gt; Paginated Tech Posts <span class="cmd-cursor"></span></div>
+        <div id="posts"></div>
+        <button id="prev">Previous</button>
+        <button id="next">Next</button>
+    </div>
     <script src="pagination.js"></script>
 </body>
+
 </html>
